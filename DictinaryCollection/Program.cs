@@ -9,74 +9,74 @@
 		/// заносит данные в коллекцию.
 		/// </summary>
 		/// <param name="args"></param>
-
-
-		// Создаём класс идентифицирующий пользователя
-		public class Identificator
-		{
-			public int Id { get; set; }
-			public string UniqueCode { get; set; }
-		}
-		// Создаём класс пользователя
 		public class User
 		{
 			public string Name { get; set; }
+			public string Password { get; set; }
 		}
-
-
 		static void Main(string[] args)
 		{
+			var users = new Dictionary<int, User>();
 			while (true)
 			{
-
-				Console.Write("1 - создать аккаунт || 2 - войти в аккаунт");
+				Console.WriteLine("1 - Добавить элемент || 2 - Найти элемент");
+				Console.Write("Выберите действие: ");
 				string choice = Console.ReadLine();
-
 				switch (choice)
 				{
 					case "1":
-						{
-							var users = new Dictionary<Identificator, User>();
-							AddNewUser(users);
-							break;
-						}
+						AddToCollection(users);
+						break;
 					case "2":
-						{
-							var users = new Dictionary<Identificator, User>();
-							Login(users);
-							break;
-						}
+						Login(users);
+						break;
 					default:
-						{
-							Console.WriteLine("Неверный ввод!");
-							break;
-						}
+						Console.Write("Неверный выбор!");
+						Console.ReadKey();
+						Console.Clear();
+						break;
 				}
 			}
 		}
-		static void AddNewUser(Dictionary<Identificator, User> users)
+		static void AddToCollection(Dictionary<int, User> users)
 		{
-			Console.Write("Введите имя пользователя: ");
+			Console.Clear();
+			Console.Write("Введите имя элемента: ");
 			var name = Console.ReadLine();
-			Console.Write("Введите уникальный код пользователя(только буквы): ");
-			var uniqueCode = Console.ReadLine();
-			users.Add(new Identificator { Id = users.Count + 1, UniqueCode = uniqueCode }, new User { Name = name });
-			Console.WriteLine("Пользователь успешно добавлен!");
+			Console.Write("Введите пароль элемента: ");
+			var password = Console.ReadLine();
+
+			var user = new User
+			{
+				Name = name,
+				Password = password,
+			};
+
+			users.Add(users.Count + 1, user);
+
+			Console.Write("Элемент успешно добавлен!");
+			Console.ReadKey();
 			Console.Clear();
 		}
-		static void Login(Dictionary<Identificator, User> users)
+		static void Login(Dictionary<int, User> users)
 		{
-			Console.WriteLine("Введите уникальный код пользователя: ");
-			var uniqueCode = Console.ReadLine();
-			var Checklogin = users.ContainsKey(new Identificator { UniqueCode = uniqueCode });
-			if(Checklogin)
-			{
-				Console.WriteLine("Добро пожаловать");
-			}
+			Console.Clear();
+			Console.Write("Введите имя элемент: ");
+			var name = Console.ReadLine();
+			Console.Write("Введите пароль элемент: ");
+			var password = Console.ReadLine();
+
+			var user = users.Any(u => u.Value.Name == name && u.Value.Password == password);
+
+            if (user)
+            {
+                Console.WriteLine("Элемент успешно найден!");
+            }
 			else
 			{
-				Console.WriteLine("Пользователь не найден!");
+				Console.WriteLine("Элемент не найден!");
 			}
+			Console.ReadKey();
 			Console.Clear();
 		}
 	}
