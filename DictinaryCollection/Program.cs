@@ -9,13 +9,17 @@
 		/// заносит данные в коллекцию.=-=цу-ц\=
 		/// </summary>
 		/// <param name="args"></param>
+
+		// Создаём класс User для хранения его в коллекции
 		public class User
 		{
 			public string Name { get; set; }
 			public string Password { get; set; }
 		}
+
 		static void Main(string[] args)
 		{
+			// Создаём коллекцию для хранения пользователей
 			var users = new Dictionary<int, User>();
 			while (true)
 			{
@@ -28,7 +32,7 @@
 						AddToCollection(users);
 						break;
 					case "2":
-						Login(users);
+						Find(users);
 						break;
 					default:
 						Console.Write("Неверный выбор!");
@@ -38,6 +42,8 @@
 				}
 			}
 		}
+
+		// Метод для добавления элемента в коллекцию
 		static void AddToCollection(Dictionary<int, User> users)
 		{
 			Console.Clear();
@@ -52,13 +58,16 @@
 				Password = password,
 			};
 
+			// Добавляем элемент в коллекцию
 			users.Add(users.Count + 1, user);
 
 			Console.Write("Элемент успешно добавлен!");
 			Console.ReadKey();
 			Console.Clear();
 		}
-		static void Login(Dictionary<int, User> users)
+
+		// Метод для поиска элемента в коллекции
+		static void Find(Dictionary<int, User> users)
 		{
 			Console.Clear();
 			Console.Write("Введите имя элемент: ");
@@ -66,6 +75,7 @@
 			Console.Write("Введите пароль элемент: ");
 			var password = Console.ReadLine();
 
+			// Проверяем есть ли такой элемент в коллекции
 			var user = users.Any(u => u.Value.Name == name && u.Value.Password == password);
 
             if (user)
