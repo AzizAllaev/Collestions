@@ -1,15 +1,12 @@
-﻿namespace CollectionSample
+﻿using ClassLibraryModel;
+
+namespace CollectionSample
 {
 	internal class Program
 	{
 		/// <summary>
 		/// Создаём класс для коллекции
 		/// </summary>
-		public class Person
-		{
-			public string Name { get; set; }
-			public int Age { get; set; }
-		}
 
 		static void Main(string[] args)
 		{

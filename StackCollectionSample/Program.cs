@@ -1,24 +1,18 @@
-﻿namespace StackCollectionSample
+﻿using ClassLibraryModel;
+
+namespace StackCollectionSample
 {
 	internal class Program
 	{
+		/// <summary>
+		/// Для демострации работы с Stack в коде показана 
+		/// работа основных методов CRUD.
+		/// </summary>
+		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
-			var stack = new Stack<int>();
+			var person = new Stack<Person>();
 
-			stack.Push(1);
-			stack.Push(2);
-			stack.Push(3);
-			stack.Push(4);
-
-			Console.WriteLine(stack.Count);
-			Console.WriteLine(stack.Peek());
-			stack.Pop();
-			string str = stack.Peek().ToString();
-
-			Console.WriteLine(str);
-			stack.Clear();
-			Console.ReadLine();
 		}
 	}
 }

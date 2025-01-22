@@ -14,9 +14,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DictinaryCollection", "Dict
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedListCollectionSample", "LinkedListCollectionSample\LinkedListCollectionSample.csproj", "{3531A707-FE73-4698-BEA1-D5FC190F2325}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackCollectionSample", "StackCollectionSample\StackCollectionSample.csproj", "{550C0896-6301-42DC-8DB3-475A397CE286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackCollectionSample", "StackCollectionSample\StackCollectionSample.csproj", "{550C0896-6301-42DC-8DB3-475A397CE286}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueCollectionSample", "QueueCollectionSample\QueueCollectionSample.csproj", "{91401CC0-4C63-4348-A090-140E770E4242}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueCollectionSample", "QueueCollectionSample\QueueCollectionSample.csproj", "{91401CC0-4C63-4348-A090-140E770E4242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryModel", "ClassLibraryModel\ClassLibraryModel.csproj", "{193EEC6F-CD60-47DB-8608-0AAC98908C8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{91401CC0-4C63-4348-A090-140E770E4242}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91401CC0-4C63-4348-A090-140E770E4242}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91401CC0-4C63-4348-A090-140E770E4242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193EEC6F-CD60-47DB-8608-0AAC98908C8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193EEC6F-CD60-47DB-8608-0AAC98908C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193EEC6F-CD60-47DB-8608-0AAC98908C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193EEC6F-CD60-47DB-8608-0AAC98908C8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
