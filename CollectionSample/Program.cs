@@ -5,40 +5,38 @@ namespace CollectionSample
 	internal class Program
 	{
 		/// <summary>
-		/// Создаём класс для коллекции
+		/// Для демострации работы с List<T> в коде показана 
+		/// работа основных методов CRUD.
 		/// </summary>
-
+		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
-			// Создаём коллекцию
-			var people = new List<Person>
-			{
-				new Person { Name = "Bekzod", Age = 23},
-				new Person { Name = "Artem", Age = 21},
-				new Person { Name = "Aziz", Age = 30},
-				new Person { Name = "Dima", Age = 43}
-			};
+			// Create
+			var person = new List<Person>();
+			person.Add(new Person { Name = "Tom", Age = 23 });
+			person.Add(new Person { Name = "Alice", Age = 29 });
+			person.Add(new Person { Name = "Bob", Age = 34 });
+			person.Add(new Person { Name = "Sam", Age = 45 });
 
-			// Сортируем по возрастанию и выводим
-			var sortUser = people.OrderBy(p => p.Age).ToList();
+            // Read
+            foreach (Person person1 in person)
+            {
+				Console.WriteLine($"Имя: {person1.Name} || Возраст: {person1.Age}");
+            }
 
-			foreach (var person in sortUser)
+			// Update
+			int index = person.BinarySearch(new Person { Name = "Anton", Age = 60 });
+			person.RemoveAt(index);
+			person.Reverse(index, 1);
+			foreach(Person person1 in person)
 			{
-				Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
+				Console.WriteLine($"Имя: {person1.Name} || Возраст: {person1.Age}");
 			}
 
-			Console.ReadKey();
-
-
-			var sortUserSec = people.OrderByDescending(p => p.Age).ToList();
-
-			// Сортируем по убыванию и выводим
-			foreach (var person in sortUserSec)
-			{
-				Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
-			}
-
-			Console.ReadKey();
+			// Delete
+			person.RemoveRange(1, 1);
+			person.RemoveAll(p => p.Age > 30);
+			person.Clear();
 		}
 	}
 }

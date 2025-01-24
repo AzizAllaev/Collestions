@@ -1,29 +1,29 @@
-﻿namespace QueueCollectionSample
+﻿using ClassLibraryModel;
+
+namespace QueueCollectionSample
 {
 	internal class Program
 	{
+		/// <summary>
+		/// Для демострации работы с Queue<T> в коде показана 
+		/// работа основных методов CRUD.
+		/// </summary>
+		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
+			// Create
 			var queue = new Queue<string>();
-			queue.Enqueue("First");
-			queue.Enqueue("Second");
-			queue.Enqueue("Third");
+			queue.Enqueue("Tom");
+			queue.Enqueue("Alice");
+			queue.Enqueue("Bob");
 
-			Console.WriteLine(queue.Count);
-
-			while (queue.Count > 0)
+			// Read
+			foreach(var item in queue)
 			{
-				Console.WriteLine(queue.Dequeue());
+				Console.WriteLine(item);
 			}
 
-			queue.Enqueue("First");
-			queue.Enqueue("Second");
-			queue.Enqueue("Third");
-			var first = queue.Peek();
-
-			Console.WriteLine($"Первый в очереди {first}");
-
-			Console.ReadLine();
+			// Update
 		}
 	}
 }
